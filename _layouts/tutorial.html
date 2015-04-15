@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<div class="Primary">
+  {% include header.html %}
+</div>
+
+<aside class="Sidebar">
+  <div class="SidebarRow SidebarDark">
+    <div class="FlexEmbed">
+      <div class="FlexEmbed-ratio FlexEmbed-ratio--16by9"></div>
+
+      <div class="FlexEmbed-content" id="player" data-video-id="{{ page.video }}"></div>
+    </div>
+  </div>
+
+  <div class="SidebarRow SidebarMed">
+    <dl class="HorizontalList">
+      <dt class="SidebarHeading">Video:</dt>
+      <dd>
+        <a href="https://www.youtube.com/watch?v={{ page.video }}">https://www.youtube.com/watch?v={{ page.video }}</a>
+      </dd>
+
+      {% if page.repo %}
+        <dt class="SidebarHeading">Repo:</dt>
+        <dd>
+          <a href="{{ page.repo }}">{{ page.repo }}</a>
+        </dd>
+      {% endif %}
+    </dl>
+  </div>
+
+  <div class="SidebarRow">
+    {% if page.resources %}
+      <h3 class="SidebarHeading">Resources</h3>
+
+      <ul class="BlockList HighlightList">
+        {% for resource in page.resources %}
+          <li>
+            <span class="HighlightList-large">
+              <a href="{{ resource.url }}">{{ resource.title }}</a>
+            </span>
+
+            {% if resource.author or resource.date %}
+              <span class="HighlightList-mini">
+                {% if resource.author %}
+                  by
+
+                  {% if resource.author_url %}
+                    <a href="{{ resource.author_url }}">
+                      {{ resource.author }}
+                    </a>
+                  {% else %}
+                    {{ resource.author }}
+                  {% endif %}
+                {% endif %}
+
+                {% if resource.author and resource.date %}
+                  on
+                {% endif %}
+
+                {{ resource.date }}
+
+              </span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</aside>
+
+<article class="Primary">
+  <div class="Primary-content">
+    <h1 class="HeadingA">{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="Kicker">
+        {{ page.description }}
+      </p>
+    {% endif %}
+
+    {{ content }}
+
+  </div>
+</article>
