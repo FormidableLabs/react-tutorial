@@ -14,13 +14,13 @@ function onYouTubeIframeAPIReady() {
 var initSkipLinks = function () {
   var skipLinks = document.querySelectorAll('.js-skip-to');
 
-  for (var i = 0; i < skipLinks.length; i++) {
-    skipLinks[i].addEventListener('click', function (ev) {
+  Array.prototype.forEach.call(skipLinks, function (el) {
+    el.addEventListener('click', function (ev) {
       ev.preventDefault();
 
       skipTo(ev.target.getAttribute("data-skip-to"))
     });
-  }
+  });
 };
 
 var skipTo = function (timeCode) {
@@ -35,3 +35,25 @@ var skipTo = function (timeCode) {
 
   player.seekTo(seconds, true);
 };
+
+var addHeadingLink = function (headingEl) {
+  var headingContent = headingEl.innerHTML;
+  var headingId = headingEl.id;
+  var linkedHeading = '<a class="HeadingLink" href="#' +
+    headingId + '">' + headingContent + '</a>';
+
+  headingEl.innerHTML = linkedHeading;
+};
+
+var initPageLinks = function () {
+  var headings = document.querySelectorAll('.Primary h2[id]');
+  var headingContent;
+  var headingId;
+  var linkedHeading;
+
+  Array.prototype.forEach.call(headings, function (el) {
+    addHeadingLink(el);
+  });
+};
+
+initPageLinks();

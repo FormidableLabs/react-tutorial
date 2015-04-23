@@ -16,11 +16,11 @@ resources:
     date: "May 13, 2014"
 ---
 
-## ⚛ Welcome
+## Welcome
 
 **Colin**:  Thanks everyone, that's true actually, I have been busting my butt. It's intimidating to present someone else's technology that they built at their place, right? I'm not a Facebook developer, some of you know me through a startup and some of you know me through as being a dev in the community. There were a couple of questions on the ... On the comments, on the meet-up group, and inevitably someone brought up other frameworks and Angular, and I think that I'll dovetail on what kicked us off tonight, by adding on to what Ryan had brought up.
 
-## ⚛ "The Problem with Angular"
+## "The Problem with Angular"
 
 [I did a look today, this is interest over time for Angular](https://www.google.com/trends/explore#q=backbonejs%2C%20reactjs%2C%20emberjs%2C%20angularjs&cmpt=q&tz=), and this is comparing it to Backbone, which is basically a non-event compared to that and as well as Ember. React is just taking off, and there is only, there is only the US, right? Whereas Angular is dominant abroad and popular in the US; React is, really it hasn't started to spread yet, it's really early days for React, but it's really exciting. I wanted to just read, there were a couple of people who had mentioned things in the comments, and I'll leave you with this. We’ll use it as a way to segue into a discussion about two-way data binding versus unidirectional data flow.
 
@@ -31,17 +31,17 @@ This was not something that Google was touting very loudly at the outset, but no
 
 Those who have picked up, those organizations that have picked up Angular have run into persistent perf issues, and that is one of the issues we're going to talk about tonight, front-end perf. How is front-end perf different between Angular or Ember and React? Why? How? At a granular level, why is this different? What's the advancement?
 
-## ⚛ The benefits of React
+## The benefits of React
 
 I've been working with React for a couple of months now. I'm still beginning myself, but I'm far enough through to help you guys through first principles. That's where we're going to start now. If you haven't cloned down the repo yet, we're going to be in a repo which is react-flux-concepts {% include hublink.html link="https://github.com/FormidableLabs/react-flux-concepts" text="React Flux Concepts" %}. Let's see if we can … I got to be online here. Let me just zoom in on that and make sure everyone has got that, because this is like our whole night here {% include skipper.html time="00:04:00" %}. We're going to be working through a series of progressively more complex examples.
 
 What do we need in a framework? Why do we use frameworks? Big team projects, we need convention, we need patterns, maintainability, performance, client-side state, complex and growingly complex client-side state. Demands for increasingly complex client-side features, something that senior dev's love, something that senior devs can get behind, something the dev teams can get behind over the long-term, stability in the code base, and good backing.
 
-React is, the fact that React has hit all of those, I think it's something that I've seen, I've seen a reaction to it in the community and its evidenced by what we're seeing here tonight. We've never had a turnout like this for Seattle, Seattle JS meet-up. We've had 430 people respond, and we've had 130 people on the wait list, 300 accepted. It's the largest event in our history as a meet-up and I think what's wonderful about tonight and I was reflecting on this in the way in, is that the community comes together to learn, and it's a really great thing. We're all still growing together. 
+React is, the fact that React has hit all of those, I think it's something that I've seen, I've seen a reaction to it in the community and its evidenced by what we're seeing here tonight. We've never had a turnout like this for Seattle, Seattle JS meet-up. We've had 430 people respond, and we've had 130 people on the wait list, 300 accepted. It's the largest event in our history as a meet-up and I think what's wonderful about tonight and I was reflecting on this in the way in, is that the community comes together to learn, and it's a really great thing. We're all still growing together.
 
 All right, so without further ado, let's work through some examples.
 
-## ⚛ Hello World: the how and why of JSX
+## Hello World: the how and why of JSX
 
 If you've used React at all, you know that you need a JSX transformer, and so next meet-up we'll be working with a build, we'll be looking at a webpack build. But for tonight we're going to do this JSX transformation in browser. Let's look at the hello world example, and let's talk through what's going on. {% include hublink.html link="https://github.com/FormidableLabs/react-flux-concepts" text="002" %} {% include skipper.html time="00:06:00" %} This is JSX, it looks like HTML, it's not HTML. It is a markup syntax that you can use effectively to sugar functions. What's going on in React is this. You start with a … Oh, by the way, each one of these images, if you'd like to pop in and have it locally is on the top here, so you can open that up if you'd like to. This class here, recipe book …
 
@@ -63,13 +63,13 @@ This is like the fundamentals of two way data modeling, yes, right, we're all on
 
 That's the innovation under the hood here. The fact that Facebook built that means that we get to work at a level of abstraction where we can basically assume that our DOM is re-rendering every time, even though it's being re-rendered intelligently under the hood. That is effectively, that's at a high level that's the fundamental difference here. It makes for more simple reasoning about our applications.
 
-## ⚛ Nesting components
+## Nesting components
 
 Let's take a look at nesting, so we ... On each one of these now we're going to start to have some little assignments for you and you can try these out, give you a couple of minutes to do this. Let's take a look at RecipeBook. RecipeBook is acting as a kind of controller view now, in this is 003-nesting.html {% include hublink.html link="https://github.com/FormidableLabs/react-flux-concepts" text="003" %} Now RecipeBook is acting as a kind of controller view, and we're going to nest RecipeList and RecipeForm inside of it.
 
 This is a hello world still but we're creating three components: RecipeForm, RecipeList and RecipeBook, and we're nesting RecipeList and RecipeForm inside of RecipeBook. This looks like {% include skipper.html time="00:12:00" %} magic, right? This is not familiar, this is a variable name. We have access to this because we declared it as a class. But this is not a variable name, so let's look at what JSX is doing here.
 
-If you put a couple of curly braces here, JSX is going to look for a variable. It's going to evaluate things, you can do a ternary {% include skipper.html time="00:12:36" %} in here, you can do maps {% include skipper.html time="00:12:38" %} and whatever else you want. I will say that the first twenty minutes or so, there was outright revulsion and panic, and then after that it was like okay, and then after a few hours I really didn't even notice anymore, so if you're feeling revulsion and panic, welcome.That's okay, give it five minutes. 
+If you put a couple of curly braces here, JSX is going to look for a variable. It's going to evaluate things, you can do a ternary {% include skipper.html time="00:12:36" %} in here, you can do maps {% include skipper.html time="00:12:38" %} and whatever else you want. I will say that the first twenty minutes or so, there was outright revulsion and panic, and then after that it was like okay, and then after a few hours I really didn't even notice anymore, so if you're feeling revulsion and panic, welcome.That's okay, give it five minutes.
 
 We have nested components inside of other components. What's important to note is that this, these two components we said that they're owned by RecipeBook. What that means is that RecipeBook is going to manage the state of RecipeList and RecipeForm, and we'll see that in just a moment. But for now, go ahead and try this on your own, create a new class, put some HTML in there and let me open this up in browser so you can see.
 
@@ -81,7 +81,7 @@ Everyone got me? If you have internet, if you get online, if you finished this a
 
 {% include skipper.html time="00:16:36" %}. Here you go. Under the hood it’s doing React.createElement and applying these, what look like attributes, but they're custom attributes, they're custom tags and custom attributes, and applying them as objects in, as another argument {% include skipper.html time="00:17:50" %} to the function.
 
-## ⚛ Props
+## Props
 
 We're going to keep going. Next let's take a look at props {% include skipper.html time="00:18:00" %}. We know we're in a function, so now we're going to think about arguments. When we define a component class, we'll start at the top, we'll start with RecipeBook, and when we define RecipeBook, we nest RecipeList and RecipeForm, so we've defined a new class now, and this new class is called Recipe. Recipe returns HTML that is set dynamically with data.
 
@@ -147,17 +147,17 @@ Colin:  Sure, so you can write right here you can do, if ... this.props.foo, foo
 
 **Speaker 6**:  Is it any component to change the entire model? Are those, with a reference to those, that model, can you write to that model?
 
-## ⚛ The briefest introduction to Flux
+## The briefest introduction to Flux
 
 **Colin**:  Stay tuned, stay tuned, great question. So the question was can any component change any, and the model, right? No components change the model. Unidirectional data flow. The high level answer to that is that here is how Flux works, any component can say hey something happened, {% include skipper.html time="00:26:00" %} right? I'll give you guys a very brief overview and then we'll move to the next one and we'll get there.
 
-Any component could say, hey something happened, that fire is what's called, and yeah, this is a little bit of a proprietary terminology here, but there's not that much, fire is an action, it’s basically a callback. You fire the action, it has an action type, which is like a name, so say like add recipe, edit as a payload of whatever data changed, send that over. 
+Any component could say, hey something happened, that fire is what's called, and yeah, this is a little bit of a proprietary terminology here, but there's not that much, fire is an action, it’s basically a callback. You fire the action, it has an action type, which is like a name, so say like add recipe, edit as a payload of whatever data changed, send that over.
 
 The store, which is basically the model, it gets that and says, okay, well, it's this data and it's this. It subscribes to changes. It gets the data, it gets the type and then it does whatever it needs to internally to manipulate its own data because if you think about it it's like a closure scope, it's a scope, right? It's {% include skipper.html time="00:26:46" %} going to return public getters, but not setters because it's one way, not two-way and then it emits change. And when it emits change, the components that are listing for that changes say, oh okay I’ve got new data and then you render everything, and that's the one way flow.
 
 You re-render everything, every time, every time you fire an action, store changes, everything listens to it re-render the whole thing, so one-way not two-way. That's flux in a nutshell, have a goodnight, see you tomorrow.
 
-## ⚛ Collection rendering
+## Collection rendering
 
 We're going to go the next one, which is collection rendering. Obviously it's not great, it's not great to declare our data in our mark-up, that's not realistic. We're not going to store or state our DOM, we're not going back to jQuery here. What's that? We're not barbaric. That's right, we're civilized JavaScript developers, that's ...
 
@@ -221,13 +221,13 @@ We're going to move on from this to state but before I do I'll take maybe three 
 
 **Colin**:  Let's go to, this is a really great post. If you've not read it, it's called Reconciliation and it is. There it is. Let’s read this free flow together, it’s a super important concept. React's key design decision is to make the API seem like it re-renders the whole app on every update. This makes writing applications a lot easier but is also an incredible challenge to make it tractable. Article explains how with heuristics we managed to turn a O(n3) to a O(n).
 
-As you can probably guess where this is going, we make some assumptions, right, and it is possible to provide a unique key for elements that is stable across different renders. That’s one of the assumptions that they took O(n) instead of n3. The key can be index, it could be a {% include skipper.html time="00:37:02" %} it could like be, underscore idea like a mongo ID. It could be something that you hash in the function itself and just create, it will be consistent, it doesn’t matter. All that matters is that it’s consistent across renders but other than that, it doesn’t matter. 
+As you can probably guess where this is going, we make some assumptions, right, and it is possible to provide a unique key for elements that is stable across different renders. That’s one of the assumptions that they took O(n) instead of n3. The key can be index, it could be a {% include skipper.html time="00:37:02" %} it could like be, underscore idea like a mongo ID. It could be something that you hash in the function itself and just create, it will be consistent, it doesn’t matter. All that matters is that it’s consistent across renders but other than that, it doesn’t matter.
 
 Another important thing to note is that if you are using, you are not getting all the performance benefits unless you use the React’s pure render mixing, which basically says, yes, I’m following these two rules. By default, React assume that you are not following its two rules, which makes it not fast, so you have to do that yourself. I’ve seen illusions that they’d like flip that over and say like and warn you if you are not doing those two things. So that if super performing out of the box, but if you look at the pure, pure render mixing. {% include skipper.html time="00:38:00" %} If your React components render function with pure, in other words, it renders the same result, given the same processing state, you can use this mixing for a performance boost.
 
-This is, I won’t read this to you but reconciliation will explain keys. 
+This is, I won’t read this to you but reconciliation will explain keys.
 
-## ⚛ State
+## State
 
 Let’s move on to the concept of state {% include skipper.html time="00:38:25" %}. Let’s talk about the difference between application state and component state. If you are taking notes, this is definitely one of them. Application state we could think of as like the store. We’ve got a data store, which our basically model, which our application is going to reference all the time.
 
@@ -310,7 +310,7 @@ Speaker 12: Can you repeat the question?
 
 Colin:  I’ll say it again. If you have a list, UI with a bunch of li in it, and every single one of those is selectable, where do you keep the state? It’s going to be in the li. At first, like I said, I don't know another way to do it, because each li is going to have to handle its own state. That’s like a lowest level of concern. Cool. By the way, if I’m egregiously wrong about anything, I absolutely will find out because I’m in front of 300 {% include skipper.html time="00:52:55" %} people. And guess what, I’ll let you know.
 
-## ⚛ Flux
+## Flux
 
 Let’s move on to Flux. At a high level, this is going to be a bit of a ride for those of you who have only done maybe OO. You’ve never done functional. The concept of  immutable data is frustrating because pretty much every time you are going to want it, like touch the data and do the thing. You are just like it's right there {% include skipper.html time="00:53:29" %} that data is right there, it’s an object, I just want, push it, move it and manipulate it, and you can’t. The reason you can’t is because the data is immutable.
 
@@ -360,9 +360,9 @@ It would be good to talk about what the mixin is and what … Basically Facebook
 
 This mixing sets up the listener, the controller view will listen to the store, and that is... that's the ballgame. {% include skipper.html time="01:07:12" %} Once it knows that it changed, and once it knows the store change, once it get that event, the whole thing re-renders and with new data is passed down and the diff sees what’s new, renders what’s new and the data is on screen.
 
-That was a lot. If you feel like … How many people feel like they could tackle this right now and might be okay? Do it, awesome. 
+That was a lot. If you feel like … How many people feel like they could tackle this right now and might be okay? Do it, awesome.
 
-## ⚛ Q&A
+## Q&A
 
 I’ll take, I’m going to give you a minute or two of silence here and then I’ll take a few more questions. That’s great. Well done everyone {% include skipper.html time="01:07:45" %}.
 
@@ -422,7 +422,7 @@ Let me show you DOM, that’s what this looks like. this.refs, we’ll talk abou
 
 Re-render the input every time the store data updates with the new value from the props, we are going to have to pass through the, we have to pass the value through the store. Now everything in the UI is a reflection of the store. [UI is data and data is UI](http://appamada.pbworks.com/f/Heart%20Sutra-Red%20Pine.pdf) That’s like, that’s homework. This is the bridge between all of these examples and the full repo. We are going to be in a full repo with a server and API calls and more flux and a webpack build and all the rest of that.
 
-I’ll point you specifically to the place in the recipe app that we’ll be going over all of next week. We’ll be diving into it, and we’ll do a review of all of this and then dive into that app. I’ll point towards {% include hublink.html link="https://github.com/FormidableLabs/recipes-flux/blob/master/client/components/ingredient-form.jsx#L27" text="the place in the app where the switch happens" %}, and where you see this happen. Angela is hard at work cleaning this up so thank you, Angela. 
+I’ll point you specifically to the place in the recipe app that we’ll be going over all of next week. We’ll be diving into it, and we’ll do a review of all of this and then dive into that app. I’ll point towards {% include hublink.html link="https://github.com/FormidableLabs/recipes-flux/blob/master/client/components/ingredient-form.jsx#L27" text="the place in the app where the switch happens" %}, and where you see this happen. Angela is hard at work cleaning this up so thank you, Angela.
 
 For extra credit, there is a problem, and that problem is that when you re-render a form input and you press backspace. You are in the … Let’s say, you are in the text area, and you were rendering that text area every time, and it’s great. You can type, but the users, see something in the middle and they go back and they’ll say, “Okay, I want to edit this part of the paragraph.” They start hitting backspace, they hit backspace once. Where does the cursor go? It goes back to the end because it’s new again.
 

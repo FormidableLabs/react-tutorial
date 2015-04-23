@@ -6,7 +6,7 @@ video: iR22EWW-CVc
 repo: https://github.com/formidablelabs/recipes-flux
 ---
 
-## ⚛ Review
+## Review
 
 **Colin**: Okay, we're going to start out with a brief review. Thank you for packing the room a second time. Also, I'll say this is the first thing, you cannot believe how exciting the last one is going to be, and I don't say that sarcastically, the last one is going to blow your mind [Edit: See [Radium](http://projects.formidablelabs.com/radium/), discussed in part 3 of this series.] Don't miss it.
 
@@ -66,7 +66,7 @@ Let's go thought that again on the image now. We start down here. This is where 
 
 What this means is that the store has no idea how many components are listening to it out there. It doesn't know and the components don't know how many stores need the data that it's sending, right. They are blind to each other and that keeps the circle going, right. Send data out to the store and then we send data into the components. When we send data into the components, the data passes down the entire tree of functions, we rerender the entire app which just means that we are producing another version of the DOM. Which is diffed against the previous version of the DOM, and then we only paint and repaint the parts that actually changed and that's why it's fast. That's react in a nutshell. Once again, have a good night.
 
-## ⚛ React Router
+## React Router
 
 Okay, let's go back to where we left off {% include skipper.html time="00:21:14" %}. Let's take a moment to talk about the router, because it's super simple and we can knock that out. Let's take a look. We go down to the router. If you guys want to know where this is, you can Google react router {% include hublink.html link="https://github.com/rackt/react-router" text="React Router" %}. If you Google react router you will find github documentation {% include skipper.html time="00:21:41" %} with some very helpful overview documentation. I recommend you read it and we can use their docs as an example. Basically {% include skipper.html time="00:22:00" %} you're going to define, when you define routes, sorry let me go back to mine because this is really small. When you define routes, you're going to define a root route to handle path. Then you can define any amount of nested siblings and nested siblings and children.
 
@@ -126,7 +126,7 @@ This will show you all of the things that you can do with react router and how y
 
 [Paula compliments **Colin** on having remembered to close Slack, as she accidentally messages him.] It was very responsible, wasn't it Paula.
 
-## ⚛ Homework: Controlled Inputs & Unidirectional Data Flow
+## Homework: Controlled Inputs & Unidirectional Data Flow
 
 Let's talk about the homework. The homework was 006.3 flux enlightenment, and the homework was this, to fix the form functionality. Here we go, what's wrong?
 
@@ -144,7 +144,7 @@ The way that that relates to upsert is that basically an upsert says, it's an up
 
 What's better is to, the person types 'F' right. They type 'F' into or '7' or 'H' into a form field. You fire and action that says, hey input has got to be value. Then the store sees that. Says, okay the text value of my record is now this new thing that I got from the input. It emitsChange and the component, the entire app rerenders. Which is insane if you've ever done backbone, because you would never thing that way. That's the enlightenment. Why would you rerender you whole app because someone pressed 'F'. Obviously since we're diffing we're intelligently repainting, so it's okay. We're firing a whole tree of functions and that's not so bad. That's milliseconds {% include skipper.html time="00:41:28" %}, right.
 
-## ⚛ Recipes-Flux: Client Side CRUD
+## Recipes-Flux: Client Side CRUD
 
 Let's take a look at this. If you could all at this point go ahead and open up Recipes flux. Hopefully you've npm installed {% include skipper.html time="00:41:38" %} all and we're not going to hit a big bottleneck. I'm going to give you a little tour of Recipes flux first. There are some anti-patterns in here that we'll talk about. This repo is not canonical {% include skipper.html time="00:42:00" %}. There are some anti-patterns that I put in intentionally to look at. There's also some rough edges because I basically built it for this meet up. Let me spread this out a little bit.
 
@@ -200,11 +200,11 @@ The one that has all of them, this is actually a representation of the app. Has 
 
 Students: Yes {% include skipper.html time="01:00:25" %}
 
-## ⚛ Someone Please Build This
+## Someone Please Build This
 
 **Colin**: yeah, yeah. I was actually thinking because we have the guarantee now that you are working with a tree, you can basically make visual app editor. We're almost to the dream of the '90s. We're closer now than ever really. Anyway, it's my dream still. I won't impose it on you. Visual app editor, okay, I'm going to. The first step would be just print it out, right. Like log out, visualize the whole app. Someone has got to do this. Visualize the app, and just spit out the tree of components and all of the children, and the next is a delete or a read. It's just interacts with your files - would be trivial in Node. This just totally has to exist. We're pretty much there now. Okay.
 
-## ⚛ Nested Collection View Rendering
+## Nested Collection View Rendering
 
 Anyway, this our IngredientForm, each button, each on of the has to be deleted. Each row, like each total ingredient can be deleted, but then each ingredient also have four inputs for the four different aspects of the data. Now, if this were prettier it would be easier to see, but they are all switched together because there is no CSS. Each on of these has an input, which is it's own component.
 

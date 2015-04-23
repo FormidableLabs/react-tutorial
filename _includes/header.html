@@ -1,3 +1,9 @@
+{% if include.details %}
+  {% assign list_class = 'TocList' %}
+{% else %}
+  {% assign list_class = 'NavList' %}
+{% endif %}
+
 <header>
   <a class="Logo" href="/">
     <span class="Logo-small">Formidable Labs</span>
@@ -7,35 +13,55 @@
   </a>
 
   <nav class="Nav">
-    <ul class="NavList BlockList">
-      <li class="NavList-cell">
+    <ul class="{{list_class}} BlockList">
+      <li class="{{list_class}}-cell">
         <a class="NavLink" href="part-1-fundamentals.html">
-          <b class="NavLink-head">Part 1: Fundamentals</b>
-          <span>JSX, Props, State & Flux</span>
-
-          {% if include.thumbs %}
+          {% if include.details %}
             <img class="NavLink-img" src="./img/part-1.jpg" alt="">
           {% endif %}
+
+          <div class="NavLink-content">
+            <b class="NavLink-head">Part 1: Fundamentals</b>
+            <span class="NavLink-subhead">JSX, Props, State &amp; Flux</span>
+
+            {% if include.details %}
+              <p class="TocList-description">But what thinks Lazarus? Can he warm his blue hands by holding them up to the grand northern lights? Would not Lazarus rather be in Sumatra than here? Would he not far rather lay him down lengthwise along the line of the equator; yea, ye gods! go down to the fiery pit itself, in order to keep out this frost?</p>
+            {% endif %}
+          </div>
         </a>
       </li>
-      <li class="NavList-cell">
-        <a class="NavLink" href="part-2-building-an-app.html">
-          <b class="NavLink-head">Part 2: Building an Application</b>
-          <span>Client Side CRUD</span>
 
-          {% if include.thumbs %}
+      <li class="{{list_class}}-cell">
+        <a class="NavLink" href="part-2-building-an-app.html">
+          {% if include.details %}
             <img class="NavLink-img" src="./img/part-2.jpg" alt="">
           {% endif %}
+
+          <div class="NavLink-content">
+            <b class="NavLink-head">Part 2: Building an Application</b>
+            <span class="NavLink-subhead">Client Side CRUD</span>
+
+            {% if include.details %}
+              <p class="TocList-description">But what thinks Lazarus? Can he warm his blue hands by holding them up to the grand northern lights? Would not Lazarus rather be in Sumatra than here? Would he not far rather lay him down lengthwise along the line of the equator; yea, ye gods! go down to the fiery pit itself, in order to keep out this frost?</p>
+            {% endif %}
+          </div>
         </a>
       </li>
-      <li class="NavList-cell">
-        <a class="NavLink" href="part-3-styles-with-radium.html">
-          <b class="NavLink-head">Part 3: Servers & Styles</b>
-          <span>REST APIs with Flux & Styles with Radium</span>
 
-          {% if include.thumbs %}
+      <li class="{{list_class}}-cell">
+        <a class="NavLink" href="part-3-styles-with-radium.html">
+          {% if include.details %}
             <img class="NavLink-img" src="./img/part-3.jpg" alt="">
           {% endif %}
+
+          <div class="NavLink-content">
+            <b class="NavLink-head">Part 3: Servers &amp; Styles</b>
+            <span class="NavLink-subhead">REST APIs with Flux &amp; Styles with Radium</span>
+
+            {% if include.details %}
+              <p class="TocList-description">But what thinks Lazarus? Can he warm his blue hands by holding them up to the grand northern lights? Would not Lazarus rather be in Sumatra than here? Would he not far rather lay him down lengthwise along the line of the equator; yea, ye gods! go down to the fiery pit itself, in order to keep out this frost?</p>
+            {% endif %}
+          </div>
         </a>
       </li>
     </ul>

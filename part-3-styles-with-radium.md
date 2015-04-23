@@ -12,7 +12,7 @@ repo: https://github.com/formidablelabs/recipes-flux
 
 Really, there's no solution for either of those things so we're going to solve those problems tonight and first thing we're going to do ... could you put my computer on? Thank you.
 
-## ⚛ Review
+## Review
 
 The first we're going to do and we did this last time too and everybody was really into it, I'm going to pump up the font size. This is advanced night for the three advanced workshops so we're going to do some crazy things tonight but we're going to go back to basics and I'm going to do a review as well. We're going to get our head back in context so here's a run through of React from first principle just in case you have been following along but it's been a few weeks since the beginning.
 
@@ -24,7 +24,7 @@ Then we call React.render and we give it a component. This component can have ot
 
 When we broke recipe list into recipe form, and then we instantiate those two components inside of the parent component. We say in React speak that the recipe book owns recipe list and recipe form. What that really means, is that recipe book is in charge of the state of recipe list and recipe form. It can pass props down so let's talk about props. What are those?
 
-We can pass data, let's take some data here. We have a syntax in JSX that looks like attributes. It's not attributes, it's actually more like arguments to a function. Add title, Stuffed Chard and instructions to Stuffed Chard. Those are going to be accepted by recipe which is up here and you can see once it's instantiated the title and instructions are going to be available at this.props.title and this.props.instructions. Those are going to get the data is going to be passed down. {% include skipper.html time="00:04:00" %} 
+We can pass data, let's take some data here. We have a syntax in JSX that looks like attributes. It's not attributes, it's actually more like arguments to a function. Add title, Stuffed Chard and instructions to Stuffed Chard. Those are going to be accepted by recipe which is up here and you can see once it's instantiated the title and instructions are going to be available at this.props.title and this.props.instructions. Those are going to get the data is going to be passed down. {% include skipper.html time="00:04:00" %}
 
 We can do basically the same thing starting at the top level. Start at recipe book, in React.render, and pass in some data we know that recipe data is an arrayed data, we pass in that array, it gets piped down all the way down through to the recipe that needs it and just in the same way, you can then call this.props. In this case, we're going to do a map and map over that array and we're going to return it for each item in the array passing through the data into props.
 
@@ -38,7 +38,7 @@ Remember that we talked about Flux and in Flux we have components which are from
 
 The recipe component, let's say that a button's clicked. The button's clicked, it fires action and the action may or may not call an API and that's what we're going to talk about tonight actually. The first item of tonight is how do I talk to a server? The second item tonight is how do I style my app? The actions the store subscribes the actions. Actually, all stores receive all actions and that's what you see; you're firing off the actions with data, all of the stores should do a check and say, "hey, do I need this?" The store when it goes ahead and updates itself, does whatever mutation it needs to do, then fires emit change {% include skipper.html time="00:08:00" %}  the recipe's controller or the app itself all of the components will subscribe to changes in the store, that will re-render the application, pass the props down to recipes and voila; your app's current. It's uni-directional; you're not doing this.model.set or this.model.get. You kind of are doing this.model.get. You can do a public getter.
 
-## ⚛ Flux & REST Apis
+## Flux & REST Apis
 
 That's actually what we're going to start talking about tonight. I haven't done any decks the entire time but inevitably this is going to be really helpful. How do you do async in Reactive Flux? The primary question which is being debated online and hopefully this video when we put it out gives something for people to reference. Both of ... Teaching the first one was basically building an app based on what was publically known and available. The second one last week was pretty easy, too because it was a much more complex app but it was all client side which people basically knew. We knew how to handle that. But this lecture installation was really hard because both of these two things are not solving the community at all. Facebook has their own solutions and we're having to ... if we're using Node or using Python the backup that Facebook is using, having to reinvent these patterns ourselves. Hopefully this serves as a reference point for all of you and it's been a bit of a research project on our end. Research project, lib building, talking, bouncing ideas off.
 
@@ -62,7 +62,7 @@ Let's say that we had a failure, well once the API comes back, the data comes ba
 
 Anyway, let's look at that in code because obviously I'm not getting off that easy. If you haven't yet, I'll give you a minute and a half, two minutes to do this and then I'll take questions during that time. Go ahead and clone down ... if you haven't cloned down recipes Flux, do that, if you have cloned it down do get role and get the latest stuff. The latest stuff is Recipes Flux now contains all of its async logic and a server.
 
-## ⚛ Q&A: Sockets & Stores Listening to Stores
+## Q&A: Sockets & Stores Listening to Stores
 
 Before I take questions, I'm going to give you a brief overview of how this server works, it's super-basic. It uses something called [LowDB](https://www.npmjs.com/package/lowdb). Which if you haven't used it, I highly recommend it. It's really neat. Basically what it is ... everyone know Lodash? Or Underscore?{% include skipper.html time="00:18:00" %}  All right; so Lodash and Underscore it's basically a database that ... it's an object it's like a NoSQL database that you've query using Lodash. It's fast and it writes either in memory or writes to a flat file so that's what's back there if you're wondering. The plan with this and I'm pretty excited about this is to use Dropbox as the distributed ... if you don't want anyone to have anyone else's data, here's where their own recipes, then you can just write to a flat file with Dropbox.js, have people connect to your Dropbox and then just write it into a flat file and then we can distribute it with no SQL database without any backend. Pretty cool, right?
 
@@ -170,7 +170,7 @@ I'm sure you've all cloned down and we're probably about ready to move on {% inc
 
 Once again, just to go back to basics, this is what we did last week. Component fires and uses a public getter so recipe says, "hey, I need to know what the recipes are". Get some stuff out of the store, the store gives the data back. OK to use a public getter because we're not going to mutate the data. We don't want to mutate in the store from the component. The component doesn't know how many stores there are, it just knows that it's getting data. It knows what it needs, and it knows what it gets.
 
-Also, if you need to go through an API, it's the same thing. You can have as many stores as you want, they can all return promises, the data comes back and the component gets it. It's where we need to do it on optimistic update, for instance. Let's talk about the update piece, not the create case this time. We fire, the component says, "hey," ... let's say bananas, that should be easy to find. That is now consistent and let's make sure that's back there in the db. Yeah, there it is, okay so that made it to our db. That write went all the way through. {% include skipper.html time="00:38:00" %} 
+Also, if you need to go through an API, it's the same thing. You can have as many stores as you want, they can all return promises, the data comes back and the component gets it. It's where we need to do it on optimistic update, for instance. Let's talk about the update piece, not the create case this time. We fire, the component says, "hey," ... let's say bananas, that should be easy to find. That is now consistent and let's make sure that's back there in the db. Yeah, there it is, okay so that made it to our db. That write went all the way through. {% include skipper.html time="00:38:00" %}
 
 Where it becomes necessary to dispatch two separate events is when we want to do an optimistic update in the user interface. We want to say, "well we know the store is changing, we want the user interface to reflect that without any latency whatsoever". We want that start event to go through and maybe that event carries data with it. It triggers a change in the store and that change goes all the way through to recipes. It may be the case that when an API comes back that it stays successfully nothing changed, then the user wouldn't even know. It would just look like it happened with zero latency. But it could be saved.
 
@@ -194,7 +194,7 @@ Another thing to show your boss if you want to write lots more React. One more c
 
 **Colin**: Wired, BBC, HipChat now, Netflix yeah lots of great ones.
 
-## ⚛ Radium
+## Radium
 
 Okay, so if you would point your web browser to [the following address](http://projects.formidablelabs.com/radium/) I'm going to walk you through what Radium is, what problems it solves and then we're going to play with it a whole bunch. We've been incredibly excited about this in our shop because we have run into a lot of the problems that Christopher Chedeau ran into when he was talking about doing inline styles so I want to run you through this presentation very briefly if you've seen it. You can just Google CSS and JS not going to read the whole thing.
 

@@ -166,11 +166,25 @@ a:focus {
 }
 
 .Home {
+  max-width: 1024px;
+  margin: 0 auto;
   padding: 1.5rem 1rem;
 }
 
 .Primary {
   padding: 1.5rem 1rem;
+}
+
+.Primary h2 {
+  position: relative;
+
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.HeadingLink {
+  color: #35424A;
+  text-decoration: none;
 }
 
 .Primary-content {
@@ -285,6 +299,44 @@ a:focus {
   padding: 1rem 1.5rem 0;
 }
 
+.TocList {
+  text-align: left;
+}
+
+.TocList-cell {
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.TocList-cell .NavLink {
+  border: none;
+}
+
+.TocList-cell:nth-child(even) .NavLink {
+  float: right;
+}
+
+.TocList .NavLink-img {
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.TocList .NavLink-subhead {
+  margin-bottom: 8px;
+  display: block;
+  font-size: 1.6875rem;
+  font-weight: 700;
+}
+
+.TocList-description {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.TocList .NavLink-content {
+  overflow: hidden;
+}
+
 .Kicker {
   padding: 0.4em 0.6em;
 
@@ -381,6 +433,34 @@ a:focus {
   .Logo {
     margin-bottom: 2rem;
   }
+
+  .HeadingLink:before {
+    content: '\00269B';
+    position: absolute;
+    top: 1px;
+    right: 100%;
+    margin-right: 10px;
+
+    color: #7097b3;
+    font-size: 24px;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+  .HeadingLink:hover:before {
+    color: #35424A;
+  }
+
+  .TocList-cell {
+    margin-top: 4rem;
+  }
+
+  .TocList .NavLink-img {
+    float: left;
+    width: 33.3333%;
+    margin-right: 24px;
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 900px) {
@@ -401,10 +481,6 @@ a:focus {
     -webkit-overflow-scrolling: touch;
 
     box-shadow: inset 1px 0 rgba(0,0,0,0.2);
-  }
-
-  .Nav {
-    margin-bottom: 2rem;
   }
 }
 

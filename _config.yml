@@ -3,3 +3,5 @@ exclude: [
   "Gemfile.lock"
 ]
 markdown: "redcarpet"
+redcarpet:
+  extensions: [with_toc_data]
