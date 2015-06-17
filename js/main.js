@@ -1,7 +1,13 @@
 var player;
 
 function onYouTubeIframeAPIReady() {
-  var videoId = document.getElementById("player").getAttribute("data-video-id");
+  var video = document.getElementById("player");
+
+  if (!video) {
+    return;
+  }
+
+  var videoId = video.getAttribute("data-video-id");
 
   player = new YT.Player('player', {
     videoId: videoId,

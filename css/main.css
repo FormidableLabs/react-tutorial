@@ -172,6 +172,8 @@ a:focus {
 }
 
 .Primary {
+  position: relative;
+
   padding: 1.5rem 1rem;
 }
 
@@ -301,6 +303,7 @@ a:focus {
 
 .TocList {
   text-align: left;
+  padding-bottom: 1rem !important;
 }
 
 .TocList-cell {
@@ -411,7 +414,7 @@ a:focus {
 
 @media (min-width: 600px) {
   .Home {
-    padding: 3rem 3rem;
+    padding: 1.5rem 3rem;
   }
 
   .Primary {
@@ -452,7 +455,7 @@ a:focus {
   }
 
   .TocList-cell {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 
   .TocList .NavLink-img {
@@ -612,4 +615,62 @@ a:focus {
   line-height: 1;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
+}
+
+/* Formidable */
+
+.Formidabanner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(29, 34, 39);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  background: rgb(43, 48, 59);
+  font-size: 1rem;
+}
+
+.Formidabanner:hover {
+  color: #7097b3;
+}
+
+.Header {
+  padding-top: 3rem;
+}
+
+/* Footer */
+
+.Footer {
+  padding: 2rem 0;
+
+  background: #2b303b;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.Footer a {
+  font-weight: 700;
+  color: #FF4136;
+}
+
+.Footer a:hover,
+.Footer a:focus {
+  color: #fff;
+}
+
+.FooterLogo {
+  display: block;
+  margin: 16px 0;
+}
+
+.FooterLogo img {
+  display: block;
+  margin: 0 auto;
 }
